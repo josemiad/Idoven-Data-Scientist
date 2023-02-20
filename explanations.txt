@@ -1,0 +1,13 @@
+The first I did was found the source of the data. The data is from a website (https://physionet.org/content/ptb-xl/1.0.2/) and  it have some explanation about how the data is structure.
+
+One I know how the data was structured, I solved how to load the data. First of all, I read all the data from the 100Hz folder and create the arrays to the AI algorithms. After create it, I saved in binary files to take less time the next time I want to open it. This is done in the jupyter get_data. The 5 superclasses was encoded in a 5 bit array.
+
+In the other jupyter, visualize_data, you can find an analysis of the data. First, I select a signal randomly to show in a plot in appropriate manner to be read by a doctor. After that, I used  the library heartpy to study the ECG characteristics. Due to the noise of the signal, the  characteristics was not calculated in a good way so I filtered the signal to improve it. Finally, I performed the continuous wavelet transform of the signal to study the main frequency components of the signal.
+
+The resnet jupyter have a resnet architecture and the results obtained. This architecture have input between [-1,1] (the input data was normalized) and is created with hyperbolic tangent activation functions and a sigmoid function to the binary output. The results was not so good, because the model accuracy increase in a good way but the validation accuracy does not increase the 60% approximately (overfitting). Maybe a dropout layer will increase the model accuracy or increase the number of hidden layers.
+
+The resnet2 jupyter have another resnet architecture and the results obtained. This architecture have input between [0,1]. But the results was the same (over fitting).
+
+I learned about ECG signals and some techniques to work with cardiology data. I saw that Autoencoders work good with ECG signals, so I train a dummy architecture (Autoencoders jupyter) but the results was not good because of the input data format. I had some problems with the GPUs memory when I was trying to train some models.
+
+I would have like to train and compare another models and hyperparameter configurations or filter all the data to see if the algorithms will have better results, but I have the university exams next week and mi current job so was not possible.
